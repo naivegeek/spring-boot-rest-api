@@ -1,7 +1,8 @@
 # spring-boot-rest-api
 Developing REST Apis based on Spring Boot.
 
-Demonstrates simple rest api based on spring boot, jpa .
+Demonstrates simple rest api based on spring boot, jpa . The rest app generates events and Users .
+User can create a account and create a event.
 
 to run the app
 
