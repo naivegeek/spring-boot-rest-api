@@ -1,9 +1,11 @@
 package com.spring.boot.rest.example.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.spring.boot.rest.example.model.Event;
@@ -21,13 +23,11 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public List<Event> findAll() {
-        return transform(eventRepository.findAll());
+        return eventRepository.findAll();
     }
-    
-    
 
     @Override
-    public Event findEventById(Integer eventId) {
+    public Event findEventById(Long eventId) {
         return eventRepository.findOne(eventId);
     }
 
@@ -42,17 +42,20 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public void delete(Integer eventId) {
+    public void delete(Long eventId) {
         eventRepository.delete(eventId);
-
     }
 
-    private List<Event> transform(Iterable<Event> iterable) {
-        List<Event> events = new ArrayList<Event>();
-        iterable.forEach((event) -> {
-            events.add(event);
-        });
-        return events;
+    @Override
+    public List<Event> findAll(Pageable pageable) {
+        Page<Event> pages = eventRepository.findAll(pageable);
+        return pages.getContent();
+    }
+
+    @Override
+    public List<Event> findAll(Sort sort) {
+        return eventRepository.findAll(sort);
+        
     }
 
 }

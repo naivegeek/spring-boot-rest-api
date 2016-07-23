@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.boot.rest.example.model.Event;
+import com.spring.boot.rest.example.model.EventUser;
 import com.spring.boot.rest.example.service.EventService;
+import com.spring.boot.rest.example.service.EventUserService;
 
 /*
  * @author srinath medala
@@ -25,10 +27,13 @@ public class EventsController {
     @Autowired
     private EventService eventService;
 
+    @Autowired
+    private EventUserService eventUserService;
+
     private static Logger logger = LoggerFactory.getLogger(EventsController.class);
 
-    @RequestMapping(value = "/event/{id}", method = RequestMethod.GET)
-    public Event getEventById(@PathVariable("id") Integer id) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Event getEventById(@PathVariable("id") Long id) {
         logger.info("Get Event information by id: {}", id);
         Event event = eventService.findEventById(id);
         return event;
@@ -38,21 +43,30 @@ public class EventsController {
     public List<Event> findAll() {
         return eventService.findAll();
     }
-    
-    
-    @RequestMapping(value = "/event", method = RequestMethod.PUT)
+
+    @RequestMapping(value = "/", method = RequestMethod.PUT)
     public Event create(@RequestBody Event event) {
         return eventService.save(event);
     }
-    
-    @RequestMapping(value = "/event", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     public Event update(@RequestBody Event event) {
         return eventService.update(event);
     }
-    
-    @RequestMapping(value = "/event/{id}", method = RequestMethod.DELETE)
-    public String delete(@PathVariable("id") Integer id) {
-         eventService.delete(id);
-         return "ok";
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable("id") Long id) {
+        eventService.delete(id);
+        return "ok";
+    }
+
+    @RequestMapping(value = "/register/{userid}", method = RequestMethod.PUT)
+    public EventUser registerUser(@RequestBody Event event, @PathVariable("userid") Long userId) {
+        event = eventService.save(event);
+        EventUser eventUser = new EventUser();
+        eventUser.setEventId(event.getId());
+        eventUser.setUserId(userId);
+        eventUserService.save(eventUser);
+        return eventUser;
     }
 }
