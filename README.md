@@ -10,25 +10,48 @@ mvn clean install
 
 mvn spring-boot:run
 
-to sell the list of all events
-GET http://localhost:8080/events/
+Get all the events
+GET http://localhost:8080/api/events
+
+Get paginated events
+GET http://localhost:8080/api/events/{pageNumber}/{pageSize}
+
+Get event by id
+GET http://localhost:8080/api/events/{eventId}
+
+Create event
+POST http://localhost:8080/api/events
+
+Update event
+PUT http://localhost:8080/api/events/{eventId}
+
+Delete event
+DELETE http://localhost:8080/api/events/{eventId}
+
+Register Event for User for userId
+PUT http://localhost:8080/api/events/register/{userid} 
+
+Get all Users
+
+GET http://localhost:8080/api/users
+
+Get paginated users
+GET http://localhost:8080/api/users/{pageNumber}/{pageSize}
+
+Get User by id
+GET http://localhost:8080/api/users/{userId}
+
+Create User
+POST http://localhost:8080/api/users
+
+Update User
+PUT http://localhost:8080/api/users/{userId}
+
+Delete User by userId
+DELETE http://localhost:8080/api/users/{userId}
 
 
-To pull a event based on a eventId
-GET http://localhost:8080/events/event/{eventId}
 
-To create a event 
-
-PUT http://localhost:8080/events/event
-
-
-To update a event 
-
-POST http://localhost:8080/events/event
-
-TO delete a event record by eventId
-
-DELETE GET http://localhost:8080/events/event/{eventId}
 
 
 

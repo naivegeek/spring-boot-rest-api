@@ -23,9 +23,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    
+
     private static Logger log = LoggerFactory.getLogger(UserController.class);
-    
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public User getUserById(@PathVariable("id") Long id) {
         log.info("Get User information by id: {}", id);
