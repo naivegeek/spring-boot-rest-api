@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.spring.boot.rest.example.model.Event;
 import com.spring.boot.rest.example.model.User;
@@ -14,6 +15,7 @@ import com.spring.boot.rest.example.repositories.EventUserRespositoryCustom;
 /*
  * @author srinath medala
  */
+@Repository("eventUserRepositoryCustom")
 public class EventUserRespositoryImpl implements EventUserRespositoryCustom {
 
     private final String FIND_BY_EVENTID = " select e from Event e, EventUser u where e.eventId = u.eventId and e.eventId = :eventId";

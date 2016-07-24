@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.spring.boot.rest.example.model.Event;
 import com.spring.boot.rest.example.repositories.EventRepository;
@@ -47,15 +47,14 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public List<Event> findAll(Pageable pageable) {
-        Page<Event> pages = eventRepository.findAll(pageable);
-        return pages.getContent();
-    }
+    public List<Event> findAll(int pageNumber ,int pageSize ) {
 
-    @Override
-    public List<Event> findAll(Sort sort) {
-        return eventRepository.findAll(sort);
-        
+        PageRequest page = new PageRequest(pageNumber - 1, pageSize);
+        Page<Event> pages = eventRepository.findAll(page);
+        if (pages != null && !CollectionUtils.isEmpty(pages.getContent())) {
+            return pages.getContent();
+        }
+        return null;
     }
 
 }

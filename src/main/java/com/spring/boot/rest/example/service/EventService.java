@@ -2,9 +2,6 @@ package com.spring.boot.rest.example.service;
 
 import java.util.List;
 
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-
 import com.spring.boot.rest.example.model.Event;
 
 /*
@@ -13,11 +10,10 @@ import com.spring.boot.rest.example.model.Event;
 public interface EventService {
 
     List<Event> findAll();
-    
-    List<Event> findAll(Pageable page);
-    
-    List<Event> findAll(Sort sort);
 
+    List<Event> findAll(int pageNumber ,int pageSize );
+
+    
     Event findEventById(Long eventId);
 
     Event save(Event event);

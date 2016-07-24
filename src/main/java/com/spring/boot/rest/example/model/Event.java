@@ -34,6 +34,8 @@ public class Event implements Serializable {
     
     private Date dateUpdated;
     
+    private String eventLocation;
+    
 
     public Long getId() {
         return id;
@@ -90,7 +92,15 @@ public class Event implements Serializable {
     public void setDateUpdated(Date dateUpdated) {
         this.dateUpdated = dateUpdated;
     }
+
+    public String getEventLocation() {
+        return eventLocation;
+    }
+
+    public void setEventLocation(String eventLocation) {
+        this.eventLocation = eventLocation;
+    }
     
     
-    
+        
 }

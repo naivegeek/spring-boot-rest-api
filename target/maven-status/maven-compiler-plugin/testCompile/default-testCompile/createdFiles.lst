@@ -1,0 +1,9 @@
+com/spring/boot/rest/example/service/EventServiceIntegrationTest.class
+com/spring/boot/rest/example/DemoApplicationTests.class
+com/spring/boot/rest/example/service/UserServiceIntegrationTest.class
+com/spring/boot/rest/example/dao/EventUserRespositoryIntegrationTest.class
+com/spring/boot/rest/example/service/EventUserServiceIntegrationTest.class
+com/spring/boot/rest/example/controller/UserControllerIntegrationTest.class
+com/spring/boot/rest/example/dao/EventRespositoryIntegrationTest.class
+com/spring/boot/rest/example/dao/UserRepositoryIntegrationTest.class
+com/spring/boot/rest/example/controller/EventControllerIntegrationTest.class

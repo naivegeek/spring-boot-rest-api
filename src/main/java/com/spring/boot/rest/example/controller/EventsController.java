@@ -30,11 +30,11 @@ public class EventsController {
     @Autowired
     private EventUserService eventUserService;
 
-    private static Logger logger = LoggerFactory.getLogger(EventsController.class);
+    private static Logger log = LoggerFactory.getLogger(EventsController.class);
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Event getEventById(@PathVariable("id") Long id) {
-        logger.info("Get Event information by id: {}", id);
+        log.info("Get Event information by id: {}", id);
         Event event = eventService.findEventById(id);
         return event;
     }
@@ -43,7 +43,12 @@ public class EventsController {
     public List<Event> findAll() {
         return eventService.findAll();
     }
-
+    
+    @RequestMapping(value = "/{pageNumber}/{pageSize}", method = RequestMethod.GET)
+    public List<Event> findAll(@PathVariable("pageNumber") Integer pageNumber, @PathVariable("pageSize") Integer pageSize) {
+        return eventService.findAll(pageNumber,pageSize);
+    }
+    
     @RequestMapping(value = "/", method = RequestMethod.PUT)
     public Event create(@RequestBody Event event) {
         return eventService.save(event);
