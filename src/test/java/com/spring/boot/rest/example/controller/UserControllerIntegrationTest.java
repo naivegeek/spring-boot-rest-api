@@ -1,5 +1,6 @@
 package com.spring.boot.rest.example.controller;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -20,6 +21,7 @@ public class UserControllerIntegrationTest {
     final String BASE_URL = "http://localhost:8080/api/users/";
 
     @Test
+    @Ignore
     public void testNewUser() {
         
         User user = new User();
@@ -33,9 +35,5 @@ public class UserControllerIntegrationTest {
         
     }
     
-    @Test
-    public void testUpdate(){
-        
-    }
-    
+   
 }

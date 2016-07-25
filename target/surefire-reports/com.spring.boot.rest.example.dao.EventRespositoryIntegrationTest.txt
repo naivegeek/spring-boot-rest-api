@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.spring.boot.rest.example.dao.EventRespositoryIntegrationTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.631 sec - in com.spring.boot.rest.example.dao.EventRespositoryIntegrationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.885 sec - in com.spring.boot.rest.example.dao.EventRespositoryIntegrationTest

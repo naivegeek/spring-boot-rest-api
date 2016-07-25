@@ -1,13 +1,11 @@
 com/spring/boot/rest/example/controller/EventsController.class
-com/spring/boot/rest/example/repositories/impl/EventUserRespositoryImpl.class
-com/spring/boot/rest/example/service/EventUserService.class
 com/spring/boot/rest/example/service/impl/EventServiceImpl.class
+com/spring/boot/rest/example/service/EventUserService.class
 com/spring/boot/rest/example/repositories/EventUserRepository.class
 com/spring/boot/rest/example/DemoApplication.class
 com/spring/boot/rest/example/service/impl/EventUserServiceImpl.class
 com/spring/boot/rest/example/service/impl/UserServiceImpl.class
 com/spring/boot/rest/example/model/EventUser.class
-com/spring/boot/rest/example/repositories/EventUserRespositoryCustom.class
 com/spring/boot/rest/example/model/Event.class
 com/spring/boot/rest/example/service/UserService.class
 com/spring/boot/rest/example/model/User.class

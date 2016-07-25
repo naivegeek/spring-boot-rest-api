@@ -2,6 +2,7 @@ package com.spring.boot.rest.example.controller;
 
 import java.util.Date;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,9 @@ public class EventControllerIntegrationTest {
     private EventService eventService;
 
     final String BASE_URL = "http://localhost:8080/api/events/";
-
+    
     @Test
+    @Ignore
     public void testCreateEvent() {
 
         Event e = new Event();
