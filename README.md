@@ -33,6 +33,13 @@ DELETE http://localhost:8080/api/events/{eventId}
 Register Event for User for userId
 PUT http://localhost:8080/api/events/register/{userid} 
 
+To get List of Events for a given userId
+
+GET http://localhost:8080/api/events/user/{userId}
+
+ex: http://localhost:8080/api/events/user/1
+
+
 Get all Users
 
 GET http://localhost:8080/api/users/
@@ -51,6 +58,13 @@ POST http://localhost:8080/api/users/
 
 Delete User by userId
 DELETE http://localhost:8080/api/users/{userId}
+
+To get the List of Users registered for a particular event
+
+GET http://localhost:8080/api/users/event/{eventId}
+
+example
+http://localhost:8080/api/users/event/1
 
 
 CURL examples
