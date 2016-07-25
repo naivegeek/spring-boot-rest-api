@@ -7,6 +7,7 @@ import com.spring.boot.rest.example.model.EventUser;
 /*
  * @author srinathm
  */
-public interface EventUserRepository extends JpaRepository<EventUser, Long>, EventUserRespositoryCustom {
+
+public interface EventUserRepository extends JpaRepository<EventUser, Long> {
 
 }

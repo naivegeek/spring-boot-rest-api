@@ -61,7 +61,6 @@ public class DummyDataLoader implements InitializingBean {
         user.setUsername("john446");
         user = userRespository.save(user);
         
-        
         user = new User();
         user.setDateRegistered(new Date());
         user.setDateUpdated(new Date());

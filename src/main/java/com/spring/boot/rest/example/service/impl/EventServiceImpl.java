@@ -47,8 +47,7 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public List<Event> findAll(int pageNumber ,int pageSize ) {
-
+    public List<Event> findAll(int pageNumber, int pageSize) {
         PageRequest page = new PageRequest(pageNumber - 1, pageSize);
         Page<Event> pages = eventRepository.findAll(page);
         if (pages != null && !CollectionUtils.isEmpty(pages.getContent())) {

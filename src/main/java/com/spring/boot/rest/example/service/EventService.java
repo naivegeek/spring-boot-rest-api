@@ -11,9 +11,8 @@ public interface EventService {
 
     List<Event> findAll();
 
-    List<Event> findAll(int pageNumber ,int pageSize );
+    List<Event> findAll(int pageNumber, int pageSize);
 
-    
     Event findEventById(Long eventId);
 
     Event save(Event event);
