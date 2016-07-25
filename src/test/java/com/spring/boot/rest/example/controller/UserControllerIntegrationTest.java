@@ -33,6 +33,9 @@ public class UserControllerIntegrationTest {
         
     }
     
-    
+    @Test
+    public void testUpdate(){
+        
+    }
     
 }
