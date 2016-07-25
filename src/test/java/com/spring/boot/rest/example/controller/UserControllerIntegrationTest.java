@@ -19,6 +19,35 @@ import com.spring.boot.rest.example.model.User;
 public class UserControllerIntegrationTest {
     
     final String BASE_URL = "http://localhost:8080/api/users/";
+    /*
+     * Not able to start the embedded tomcat server while running the test, therefore I had to run the 
+     * server manually from outside. using
+     * mvn spring-boot:run
+     * 
+     * And I tested the application with following CURL test URLS
+     * 
+     *  Creating a USER.
+        curl -i -X PUT -H "Content-Type:application/json" http://localhost:8080/api/users/ -d '{"firstName":"Eric","lastName":"smith","username":"ericsmith","password":"password"}'
+        
+        Updating the USER.
+        curl -i -X POST -H "Content-Type:application/json" http://localhost:8080/api/users/ -d '{"id":"1","firstName":"John","lastName":"Boarding","username":"john446","password":"password"}'
+        
+        Delete a User.
+        curl -i -X DELETE -H "Content-Type:application/json" http://localhost:8080/api/users/3/
+      
+        Get list of all Users
+        curl -i -X GET -H "Content-Type:application/json" http://localhost:8080/api/users/
+        
+        Get User with id=1
+        curl -i -X GET -H "Content-Type:application/json" http://localhost:8080/api/users/1/
+        
+        Get list of all Users with pagenation
+        curl -i -X GET -H "Content-Type:application/json" http://localhost:8080/api/users/1/10
+        
+        Get list of Users registered for the event with eventId=10
+        curl -i -X GET -H "Content-Type:application/json" http://localhost:8080/api/users/event/10
+        
+      */
 
     @Test
     @Ignore

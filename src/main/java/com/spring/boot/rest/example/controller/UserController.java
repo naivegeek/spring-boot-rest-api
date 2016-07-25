@@ -25,7 +25,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    
+
     @Autowired
     private EventUserService eventUserService;
 
@@ -41,6 +41,11 @@ public class UserController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<User> findAll() {
         return userService.findAll();
+    }
+
+    @RequestMapping(value = "/{pageNumber}/{pageSize}", method = RequestMethod.GET)
+    public List<User> findAll(@PathVariable("pageNumber") Integer pageNumber, @PathVariable("pageSize") Integer pageSize) {
+        return userService.findAll(pageNumber, pageSize);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.PUT)
@@ -60,7 +65,7 @@ public class UserController {
         userService.delete(id);
         return "ok";
     }
-    
+
     @RequestMapping(value = "/event/{eventId}", method = RequestMethod.GET)
     public List<User> findAllUsersRegisteredForEvent(@PathVariable("eventId") Long eventId) {
         return eventUserService.findAllUsersRegisteredInEvent(eventId);

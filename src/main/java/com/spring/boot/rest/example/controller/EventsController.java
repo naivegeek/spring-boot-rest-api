@@ -44,17 +44,18 @@ public class EventsController {
     public List<Event> findAll() {
         return eventService.findAll();
     }
-    
+
     @RequestMapping(value = "/user/{userid}", method = RequestMethod.GET)
     public List<Event> findAllEventsForUser(@PathVariable("userid") Long userId) {
         return eventUserService.findAllEventsRegisteredForUser(userId);
     }
-    
+
     @RequestMapping(value = "/{pageNumber}/{pageSize}", method = RequestMethod.GET)
-    public List<Event> findAll(@PathVariable("pageNumber") Integer pageNumber, @PathVariable("pageSize") Integer pageSize) {
-        return eventService.findAll(pageNumber,pageSize);
+    public List<Event> findAll(@PathVariable("pageNumber") Integer pageNumber,
+            @PathVariable("pageSize") Integer pageSize) {
+        return eventService.findAll(pageNumber, pageSize);
     }
-    
+
     @RequestMapping(value = "/", method = RequestMethod.PUT)
     public Event create(@RequestBody Event event) {
         return eventService.save(event);
@@ -82,6 +83,5 @@ public class EventsController {
         eventUserService.save(eventUser);
         return eventUser;
     }
-    
-    
+
 }

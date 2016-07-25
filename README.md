@@ -69,27 +69,65 @@ http://localhost:8080/api/users/event/1
 
 CURL examples
 
-Creating a USER
-$ curl -i -X PUT -H "Content-Type:application/json" http://localhost:8080/api/users/ -d '{"firstName":"Eric","lastName":"smith","username":"ericsmith","password":"password"}'
-HTTP/1.1 200 OK
-Server: Apache-Coyote/1.1
-X-Application-Context: application
-Content-Type: application/json;charset=UTF-8
-Transfer-Encoding: chunked
-Date: Mon, 25 Jul 2016 07:35:35 GMT
+sudo mvn clean install
+sudo mvn spring-boot:run
 
-{"id":3,"email":null,"username":"ericsmith","password":"password","firstName":"Eric","lastName":"smith","dateRegistered":null,"dateUpdated":null}
+Testing the application using  CURL
 
-Creating a EVENT
-$ curl -i -X PUT -H "Content-Type:application/json" http://localhost:8080/api/events/ -d '{"eventType":"privateEvent","eventDetails":"summer party","eventLocation":"pista house culver city ca 90230"}'
-HTTP/1.1 200 OK
-Server: Apache-Coyote/1.1
-X-Application-Context: application
-Content-Type: application/json;charset=UTF-8
-Transfer-Encoding: chunked
-Date: Mon, 25 Jul 2016 07:41:44 GMT
+Creating a USER.
+curl -i -X PUT -H "Content-Type:application/json" http://localhost:8080/api/users/ -d '{"firstName":"Eric","lastName":"smith","username":"ericsmith","password":"password"}'
 
-{"id":26,"eventType":"privateEvent","eventDetails":"summer party","startDate":null,"endDate":null,"dateCreated":null,"dateUpdated":null,"eventLocation":"pista house culver city ca 90230"}
+Updating the USER with userId=1.
+curl -i -X POST -H "Content-Type:application/json" http://localhost:8080/api/users/ -d '{"id":"1","firstName":"John","lastName":"Boarding","username":"john446","password":"password"}'
+
+Delete a User.
+curl -i -X DELETE -H "Content-Type:application/json" http://localhost:8080/api/users/3/
+
+Get list of all Users
+curl -i -X GET -H "Content-Type:application/json" http://localhost:8080/api/users/
+
+Get User with id=1
+curl -i -X GET -H "Content-Type:application/json" http://localhost:8080/api/users/user/1/
+
+Get list of all Users with pagenation
+curl -i -X GET -H "Content-Type:application/json" http://localhost:8080/api/users/1/10
+
+Get list of Users registered for the event with eventId=10
+curl -i -X GET -H "Content-Type:application/json" http://localhost:8080/api/users/event/10
+
+
+Creating a EVENT. 
+curl -i -X PUT -H "Content-Type:application/json" http://localhost:8080/api/events/ -d '{"eventType":"privateEvent","eventDetails":"summer party","eventLocation":"pista house, #309, culver city, ca 90230"}' 
+
+curl -i -X PUT -H "Content-Type:application/json" http://localhost:8080/api/events/ -d '{"eventType":"publicEvent","eventDetails":"summer party","eventLocation":"1100 gelndon,westwood, ca 90024"}'
+
+curl -i -X PUT -H "Content-Type:application/json" http://localhost:8080/api/events/register/1 -d '{"eventType":"publicEvent","eventDetails":"code meetup","eventLocation":"1100 gelndon,westwood, ca 90024"}'
+
+Updating a existing event with eventId=22.
+curl -i -X POST -H "Content-Type:application/json" http://localhost:8080/api/events/ -d '{"id":"22","eventType":"privateChangedEvent","eventDetails":"summer party","eventLocation":"1100 gelndon,westwood, ca 90024"}'
+
+Delete a Event.
+curl -i -X DELETE -H "Content-Type:application/json" http://localhost:8080/api/events/3/
+
+Get list of Events
+curl -i -X GET -H "Content-Type:application/json" http://localhost:8080/api/events/
+
+Get Event with id=1
+curl -i -X GET -H "Content-Type:application/json" http://localhost:8080/api/events/1/
+
+Get list of all Events with pagenation
+curl -i -X GET -H "Content-Type:application/json" http://localhost:8080/api/events/1/10
+
+
+
+
+
+
+
+
+
+
+
 
 
 

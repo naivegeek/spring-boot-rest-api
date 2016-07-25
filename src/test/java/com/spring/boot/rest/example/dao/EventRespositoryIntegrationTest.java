@@ -114,9 +114,10 @@ public class EventRespositoryIntegrationTest {
         Assert.assertNotNull("Event Id should not be NULL", event.getId());
 
         eventRepository.delete(event.getId());
+        Event e = eventRepository.findOne(event.getId());
+        Assert.assertNull(e);
     }
 
-    
     private void createEvents() {
         for (int i = 1; i <= 20; i++) {
             Event event = new Event();
