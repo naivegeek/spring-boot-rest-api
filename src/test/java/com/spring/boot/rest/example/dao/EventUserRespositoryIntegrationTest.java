@@ -14,4 +14,5 @@ import com.spring.boot.rest.example.DemoApplication;
 @SpringApplicationConfiguration(classes = {DemoApplication.class})  
 public class EventUserRespositoryIntegrationTest {
 
+    
 }

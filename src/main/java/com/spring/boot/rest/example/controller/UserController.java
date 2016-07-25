@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.boot.rest.example.model.User;
+import com.spring.boot.rest.example.service.EventUserService;
 import com.spring.boot.rest.example.service.UserService;
 
 /*
@@ -23,6 +24,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private EventUserService eventUserService;
 
     private static Logger log = LoggerFactory.getLogger(UserController.class);
 
@@ -52,5 +56,10 @@ public class UserController {
     public String delete(@PathVariable("id") Long id) {
         userService.delete(id);
         return "ok";
+    }
+    
+    @RequestMapping(value = "/event/{eventId}", method = RequestMethod.GET)
+    public List<User> findAllUsersRegisteredForEvent(@PathVariable("eventId") Long eventId) {
+        return eventUserService.findAllUsersRegisteredInEvent(eventId);
     }
 }

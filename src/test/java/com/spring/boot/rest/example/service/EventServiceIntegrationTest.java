@@ -45,7 +45,7 @@ public class EventServiceIntegrationTest {
     public void testFindAll() {
         createEvents();
         List<Event> events = eventService.findAll();
-        Assert.assertTrue("", events.size() == 20);
+        Assert.assertTrue(events.size() == 40);
     }
 
     @Test

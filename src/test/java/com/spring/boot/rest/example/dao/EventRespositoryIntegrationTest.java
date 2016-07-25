@@ -49,7 +49,7 @@ public class EventRespositoryIntegrationTest {
     public void testFindAll() {
         createEvents();
         List<Event> events = eventRepository.findAll();
-        Assert.assertTrue("", events.size() == 20);
+        Assert.assertTrue("", events.size() > 20);
     }
 
     @Test
