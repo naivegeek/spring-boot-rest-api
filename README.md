@@ -6,14 +6,14 @@ User can create a account and create a event.
 
 Please Note: App when started creates dummy data for events,users and registers users with events.
 
-To run the app please execute the following commands.
+To run the app please execute the following commands
 
 mvn clean install
 
 mvn spring-boot:run
 
 Get all the events
-GET http://localhost:8080/api/events
+GET http://localhost:8080/api/events 
 
 Get paginated events
 GET http://localhost:8080/api/events/{pageNumber}/{pageSize}
